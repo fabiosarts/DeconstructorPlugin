@@ -12,32 +12,41 @@ Also remember this is my first plugin i've developed since I bought *RPG Maker M
 *Note*: All tags should be used on Note section on Database
 
 There's two things needed to make it work:
-1. Register a material using DeconMaterial tag as it follows
-   \<**DeconMaterial**:*MaterialName*>
-         Where *MaterialName* should be unique for each material.
-         Take in mind MaterialName has nothing to do with Item Name from database.
-         Example: \<**DeconMaterial**:*EmptyBottle*>
-2. Define properties for processable items
-    *<**DeconResult** Material:Weight>*
-      It will use *Material* to reference to specific material defined on *\<DeconMaterial>* tag, (Weight) will define it's random Weight, when multiple <DeconResult> is defined, higher *Weight_ values will have more chances to appear.
-      To make a chance to drop nothing, (Material) can be **NONE**
-      Example:
-        \<**DeconResult** RedFrag:75>
-        \<**DeconResult** BlueFrag:25>
-        \<**DeconResult** NONE:100>
-        This will make no drops at half oportunities, while RedFrag being more common than BlueFrag.
-       \<**DeconForced** *Material*:*Drops*>
-         It's the same as <DeconResult>, but it ensures a drop by using
-         a fixed or random chances, which could start with zero.
-         (Drops) could define as folows
-         \<**DeconForced** *EmptyBottle*:*1*> will always drop 1 empty bottle.
-         \<**DeconForced** *Sugar*:*0 to 3*> Will drop Sugar from a random
-         number from 0 to 3 exclusive.
-       \<**DeconChanceRepeat**:*Chance*>
-         Chance to repeat a process using a decimal number from 0 to 1
-         \<**DeconChanceRepeat**:*0.5*> to ensure half-chance.
-      \<**DeconMaxRepeats**:3>
-         Maximum repeated processes.
-##Plugin commands:
+#### Register a material using DeconMaterial tag as it follows
+* \<**DeconMaterial**:*MaterialName*>
+  Where *MaterialName* should be unique for each material.
+  Take in mind MaterialName has nothing to do with Item Name from database.
+  
+  Example: \<**DeconMaterial**:*EmptyBottle*>
+#### Define properties for processable items
+* *<**DeconResult** Material:Weight>*
+
+  It will use *Material* to reference to specific material defined on *\<DeconMaterial>* tag, (Weight) will define it's random Weight, when multiple <DeconResult> is defined, higher *Weight* values will have more chances to appear.
+  
+  To make a chance to drop nothing, (Material) can be **NONE**
+* Example:
+  - \<**DeconResult** RedFrag:75>
+  - \<**DeconResult** BlueFrag:25>
+  - \<**DeconResult** NONE:100>
+
+  This will make *RedFrag* three times more common than *BlueFrag* and more chances to get nothing, as doubles the weight from the last two together.
+* \<**DeconForced** *Material*:*Drops*>
+
+  It's the same as <DeconResult>, but it ensures a drop by using
+  a fixed or random chances, which could start with zero.
+  (Drops) could define as folows
+
+  - \<**DeconForced** *EmptyBottle*:*1*> will always drop 1 empty bottle.
+  - \<**DeconForced** *Sugar*:*0 to 3*> Will drop Sugar from a random
+  number from 0 to 3 exclusive.
+  - \<**DeconChanceRepeat**:*Chance*>
+  Chance to repeat a process using a decimal number from 0 to 1
+  - \<**DeconChanceRepeat**:*0.5*> to ensure half-chance.
+  - \<**DeconMaxRepeats**:3>
+    Maximum repeated processes.
+
+#### Plugin commands:
+
 * **Deconstructor** *process-item #var*
-Where #var points an item variable to process, it will do nothing if you don't have that item on inventory.
+
+  Where #var points an item variable to process, it will do nothing if you don't have that item on inventory.

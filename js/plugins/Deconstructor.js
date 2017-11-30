@@ -70,8 +70,9 @@
 *            <DeconResult RedFrag:75>
 *            <DeconResult BlueFrag:25>
 *            <DeconResult NONE:100>
-*            This will make no drops at half oportunities, while RedFrag
-*            being more common than BlueFrag.
+*          This will make *RedFrag* three times more common than
+*          *BlueFrag* and more chances to get nothing, as doubles
+*          the weight from the last two together.
 *        <DeconForced (Material):(Drops)>
 *          It's the same as <DeconResult>, but it ensures a drop by using
 *          a fixed or random chances, which could start with zero.
